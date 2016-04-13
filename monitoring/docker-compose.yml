@@ -1,0 +1,30 @@
+version: '2'
+services:
+    influxdb:
+        image: tutum/influxdb:0.10
+        hostname: influxdb
+        container_name: influxdb
+        ports:
+            - "8083:8083"
+            - "8086:8086"
+            - "2003:2003"
+        volumes:
+            - "influxdb-data:/data"
+        environment:
+            GRAPHITE_DB: graphitedb
+            GRAPHITE_BINDING: ":2003"
+            GRAPHITE_PROTOCOL: tcp
+            GRAPHITE_TEMPLATE: "project.type.measurement*"
+            PRE_CREATE_DB: "graphitedb"
+    grafana:
+        image: grafana/grafana:2.6.0
+        hostname: grafana
+        container_name: grafana
+        ports:
+            - "3000:3000"
+        volumes:
+            - "grafana-data:/var/lib/grafana"
+
+volumes:
+    influxdb-data: {}
+    grafana-data: {}

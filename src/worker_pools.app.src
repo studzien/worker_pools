@@ -1,0 +1,20 @@
+{application, 'worker_pools',
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, {'worker_pools_app', []}},
+  {applications,
+   [kernel,
+    stdlib,
+    lager,
+    exometer,
+    worker_pool,
+    dispcount
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {contributors, []},
+  {licenses, []},
+  {links, []}
+ ]}.
