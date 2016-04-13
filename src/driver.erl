@@ -9,9 +9,9 @@ do() ->
     [ scenario(Backend) || Backend <- backends() ].
 
 backends() ->
-    %[cuesport_pool,
-     %[poolboy_no_overflow_pool,
-     [poolboy_block_pool,
+    [cuesport_pool,
+     poolboy_no_overflow_pool,
+     poolboy_block_pool,
      poolboy_overflow_pool,
      inaka_best_worker_pool,
      inaka_random_worker_pool,
